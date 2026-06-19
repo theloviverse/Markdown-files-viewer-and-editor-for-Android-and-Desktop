@@ -1,8 +1,10 @@
 name: Deploy to GitHub Pages
 
 on:
+  # Csak kézi indítás / a fő branch. NE fusson automatikusan a feature branchen,
+  # mert a deploy hibát dob, amíg a Pages nincs engedélyezve (Settings → Pages).
   push:
-    branches: ["main", "claude/markdown-editor-viewer-nrun01"]
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
