@@ -70,6 +70,38 @@ python3 -m http.server 8000   # majd: http://localhost:8000
 
 ---
 
+## 📱 Telepítés telefonra (S25 Ultra is)
+
+> 🚫 **NE másold ki a kódot Jegyzettömbbe / Samsung Notes-ba**, és onnan mentve `.html`-ként.
+> A jegyzetalkalmazások „rich text” szerkesztők: átalakítják a karaktereket (okos
+> idézőjelek, eltűnő `<`/`>`, sortörések), ettől a beágyazott, minified JavaScript
+> **megsérül**, és a gombok némán nem működnek (a kód forrása szövegként jelenhet meg az
+> oldal alján). A fájl csak **byte-pontos** átvitellel jó.
+
+**A) Byte-pontos letöltés (offline, azonnal működik)**
+1. Nyisd meg a telefon böngészőjében a repó `index.html` fájlját a GitHubon.
+2. Koppints a **„Download raw file”** (letöltés ⬇️) ikonra — **ne** a sima „Raw” nézetet
+   használd, mert az csak megjeleníti a szöveget.
+3. A letöltött `index.html`-t nyisd meg a böngészővel (Chrome / Samsung Internet).
+   Innentől internet nélkül is működik.
+
+**B) GitHub Pages link (csak megnyitod, nincs letöltés)**
+
+A repó Settings → Pages alatt engedélyezhető:
+1. (Ingyenes csomagon a Pages csak **publikus** repón működik — szükség esetén tedd
+   publikussá: Settings → General → Change visibility.)
+2. **Settings → Pages → Build and deployment → Source: _Deploy from a branch_**.
+3. Branch: `claude/markdown-editor-viewer-nrun01` (vagy a fő branch), mappa: `/ (root)` → **Save**.
+4. ~1 perc múlva elérhető:
+   `https://theloviverse.github.io/Markdown-files-viewer-and-editor-for-Android-and-Desktop/`
+5. A telefonon megnyitva: böngészőmenü → **„Hozzáadás a kezdőképernyőhöz”** — így ikonról,
+   offline is indítható.
+
+(Alternatíva: **Source: GitHub Actions** — a mellékelt `.github/workflows/pages.yml`
+automatikusan deployol a fő/feature branchre pusholva.)
+
+---
+
 ## 🧱 Build (csak fejlesztéshez)
 
 A kész `index.html`-t egy egyszerű, függőség nélküli Node-szkript állítja elő az
