@@ -1,0 +1,13 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Szerkesztők
+.vscode/
+.idea/
+*.swp
+
+# Logok / ideiglenes
+*.log
+.cache/
+node_modules/
