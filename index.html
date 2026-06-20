@@ -8,6 +8,16 @@
   <meta name="description" content="Reszponzív, tiszta dizájnú, teljesen offline webes Markdown megjelenítő és szerkesztő — sötét móddal, drag & drop támogatással, kódszínezéssel és táblázatokkal. Mobilra és desktopra optimalizálva." />
   <title>Markdown Megjelenítő &amp; Szerkesztő</title>
 
+  <!-- PWA: telepíthető alkalmazás (csak HTTPS-en / Pages-en aktív; file://-n a manifest
+       ártalmatlan, a service worker regisztráció pedig nem fut le — lásd lent). -->
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="icons/icon.svg" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Markdown" />
+
   <style>
   /* =======================================================================
      Markdown Megjelenítő & Szerkesztő — önálló, offline stíluslap
@@ -1636,6 +1646,24 @@ const n=e.replace("grmr_","").replace("_","-");He.registerLanguage(n,Ke[e])}
 return He}()
 ;"object"==typeof exports&&"undefined"!=typeof module&&(module.exports=hljs);
 </script>
+
+  <!-- =====================================================================
+       PWA service worker regisztráció — CSAK https-en vagy localhoston fut.
+       file://-ról megnyitva (letöltött egyfájlos verzió) szándékosan kimarad,
+       hogy ne dobjon hibát; az app ott egyfájlosan, offline úgyis működik.
+       ===================================================================== -->
+  <script>
+  (function () {
+    'use strict';
+    var ok = 'serviceWorker' in navigator &&
+      (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1');
+    if (ok) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('sw.js').catch(function () { /* csendben */ });
+      });
+    }
+  })();
+  </script>
 
   <!-- =====================================================================
        Alkalmazáslogika

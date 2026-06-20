@@ -102,6 +102,28 @@ automatikusan deployol a fő/feature branchre pusholva.)
 
 ---
 
+## 📲 Telepítés alkalmazásként (PWA)
+
+Az app **telepíthető PWA** — saját ikonnal, külön ablakban (nem böngészőfülön) indul, és
+offline is működik.
+
+> ⚠️ A telepítés **csak a HTTPS-en kiszolgált Pages-linkről** működik. Helyi `file://`
+> megnyitásnál a böngészők biztonsági okból **nem** kínálják fel a telepítést (ez böngésző-
+> korlát, minden weboldalra igaz). A letöltött `index.html` ettől még offline használható,
+> csak ikon/telepítés nélkül.
+
+Telepítés a Pages-linkről:
+- **Chrome (Android):** menü (⋮) → **„Alkalmazás telepítése”** / „Hozzáadás a kezdőképernyőhöz”.
+- **Samsung Internet:** menü → „Oldal hozzáadása” → **Kezdőképernyő**.
+- **Asztali Chrome/Edge:** a címsor jobb szélén megjelenő **telepítés** ikon.
+
+Telepítés után az ikonról indul, és az első betöltés után **internet nélkül is** működik
+(a `sw.js` service worker gyorsítótárazza az alkalmazást).
+
+A PWA-réteg fájljai: `manifest.webmanifest`, `sw.js`, `icons/icon.svg`.
+
+---
+
 ## 🧱 Build (csak fejlesztéshez)
 
 A kész `index.html`-t egy egyszerű, függőség nélküli Node-szkript állítja elő az
@@ -128,6 +150,10 @@ node tools/build.js
 .
 ├── index.html              # ⭐ KÉSZ, önálló offline app (ezt nyisd meg / telepítsd)
 ├── index.src.html          # Forrássablon: felület + CSS + app JS + vendor-helyőrzők
+├── manifest.webmanifest    # PWA manifest (telepíthető app — Pages-en aktív)
+├── sw.js                   # Service worker (offline gyorsítótár a PWA-hoz)
+├── icons/
+│   └── icon.svg            # App ikon (manifest + favicon + apple-touch-icon)
 ├── tools/
 │   ├── build.js            # A vendor könyvtárak beágyazása → index.html
 │   ├── update-vendor.js    # Minified libek másolása node_modules-ból
