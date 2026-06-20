@@ -1,0 +1,11 @@
+{
+  "name": "markdown-viewer-editor",
+  "version": "1.0.0",
+  "description": "Reszponzív, teljesen offline webes Markdown megjelenítő és szerkesztő (egyfájlos build).",
+  "private": true,
+  "scripts": {
+    "build": "node tools/build.js",
+    "vendor": "npm i marked@12.0.2 dompurify@3.1.6 @highlightjs/cdn-assets@11.9.0 && node tools/update-vendor.js"
+  },
+  "license": "MIT"
+}

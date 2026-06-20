@@ -1,0 +1,21 @@
+{
+  "name": "Markdown Megjelenítő és Szerkesztő",
+  "short_name": "Markdown",
+  "description": "Reszponzív, offline Markdown megjelenítő és szerkesztő sötét móddal, kódszínezéssel és táblázatokkal.",
+  "lang": "hu",
+  "dir": "ltr",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0f172a",
+  "theme_color": "#0ea5e9",
+  "icons": [
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

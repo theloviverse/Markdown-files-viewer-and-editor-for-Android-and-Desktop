@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Markdown Szerkesztő">
+  <!-- Háttér (maskable-barát: a fontos tartalom a középső ~80% biztonsági zónában) -->
+  <rect width="512" height="512" rx="112" fill="#0ea5e9"/>
+  <rect width="512" height="512" rx="112" fill="url(#g)"/>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <!-- Markdown "M↓" jelvény -->
+  <g fill="none" stroke="#ffffff" stroke-width="34" stroke-linecap="round" stroke-linejoin="round">
+    <!-- M -->
+    <path d="M132 356 V190 l68 84 68 -84 V356"/>
+    <!-- lefelé mutató nyíl (↓) -->
+    <path d="M360 188 V330"/>
+    <path d="M312 286 l48 52 48 -52"/>
+  </g>
+</svg>
